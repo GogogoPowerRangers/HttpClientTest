@@ -1,0 +1,34 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral() // maven { url 'http://jcenter.bintray.com' }
+}
+
+dependencies {
+    compile 'com.netflix.rxjava:rxjava-core:0.13.1'
+    compile 'org.apache.httpcomponents:httpclient:4.3'
+    compile 'org.apache.httpcomponents:httpcore-nio:4.3'
+    compile 'org.apache.httpcomponents:httpasyncclient:4.0-beta4'
+    
+//    commons-logging-x.x.x.jar
+//    commons-codec-x.x.x.jar
+//    httpcore-x.x.x.jar
+//    httpcore-nio-x.x.x.jar
+//    httpclient-x.x.x.jar
+//    httpasyncclient-x.x.x.jar
+//    httpclient-cache-x.x.x.jar (*)
+//    httpasyncclient-cache-x.x.x.jar (*)
+}
+
+
+task(runFutureBoolean, dependsOn: 'classes', type: JavaExec) {
+	main = 'TestWithFutureBoolean'
+	classpath = sourceSets.main.runtimeClasspath
+	args ''
+}
+
+task(runFutureCallback, dependsOn: 'classes', type: JavaExec) {
+	main = 'TestWithFutureCallback'
+	classpath = sourceSets.main.runtimeClasspath
+	args ''
+}
